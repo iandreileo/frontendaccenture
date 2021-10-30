@@ -27,23 +27,31 @@ const PlacePage = () => {
       <Header />
 
       {/*  Page content */}
-      <main className="flex-grow">
-
-        {/*  Page sections */}
-        <div className="container mx-auto">
+      <div className="container mx-auto">
                 <div className="pt-32 pb-12 md:pt-40 md:pb-20">
                 <section class="blog text-gray-700 body-font">
         <div class="container px-5 py-24 mx-auto">
-            <div class="flex flex-wrap flex-col sm:-m-4 -mx-4 -mb-10 -mt-4">
-              <div class="title-post font-bold text-7xl text-center break-all">{place.title}</div>
-              <div class="bg-gray-300 h-56 w-6/12 rounded-lg shadow-md bg-cover bg-center self-center" style={{backgroundImage: `url(${place.image})`}}></div>
+            <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
+            <main class="relative container mx-auto bg-white px-4">
+
+        <div class="test mt-[-10%] w-1/2 mx-auto">
+          <div class="relative pt-[56.25%] overflow-hidden rounded-2xl">
+            <img class="w-full h-full inset-0 object-cover" src={place.image} alt="" />
+          </div>
+        </div>
+
+        <article class="max-w-prose mx-auto py-8">
+          <h1 class="text-3xl font-bold">{place.title}</h1>
+          <h2 class="mt-2 text-sm text-gray-500"><strong>Added by</strong> <i>{place.addedBy}</i></h2>
+
+          <p class="mt-6">{place.description}</p>
+        </article>
+      </main>
             </div>
         </div>
     </section>
                 </div>
             </div>
-
-      </main>
 
       {/*  Site footer */}
       <Footer />
