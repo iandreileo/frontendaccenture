@@ -1,9 +1,5 @@
-import React, { useEffect } from 'react';
-import {
-  Switch,
-  Route,
-  useLocation
-} from 'react-router-dom';
+import React, { useContext, useEffect, useState } from 'react';
+import { Switch, Route, useLocation } from 'react-router-dom';
 
 import './css/style.scss';
 
@@ -16,9 +12,12 @@ import SignUp from './pages/SignUp';
 import ResetPassword from './pages/ResetPassword';
 import Places from './pages/Places';
 import PlacePage from './pages/PlacePage';
+import { UserContext } from './providers/UserProvider';
+import { Redirect } from 'react-router-dom';
 
 function App() {
-
+  const [user, setUser] = useContext(UserContext);
+  const [isAuth, setIsAuth] = useState(true);
   const location = useLocation();
 
   useEffect(() => {
@@ -28,12 +27,17 @@ function App() {
       duration: 700,
       easing: 'ease-out-cubic',
     });
+    if (user) {
+      setIsAuth(true);
+    } else {
+      setIsAuth(false);
+    }
   });
 
   useEffect(() => {
-    document.querySelector('html').style.scrollBehavior = 'auto'
-    window.scroll({ top: 0 })
-    document.querySelector('html').style.scrollBehavior = ''
+    document.querySelector('html').style.scrollBehavior = 'auto';
+    window.scroll({ top: 0 });
+    document.querySelector('html').style.scrollBehavior = '';
     focusHandling('outline');
   }, [location.pathname]); // triggered on route change
 
@@ -43,21 +47,25 @@ function App() {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route path="/signin">
-          <SignIn />
-        </Route>
-        <Route path="/signup">
-          <SignUp />
-        </Route>
+        <Route
+          path="/signin"
+          render={() => (isAuth ? <Redirect to="/" /> : <SignIn />)}
+        ></Route>
+        <Route
+          path="/signup"
+          render={() => (isAuth ? <Redirect to="/" /> : <SignUp />)}
+        ></Route>
         <Route path="/reset-password">
           <ResetPassword />
         </Route>
-        <Route path="/places">
-          <Places />
-        </Route>
-        <Route path="/place/:id">
-            <PlacePage />
-        </Route>
+        <Route
+          path="/places"
+          render={() => (isAuth ? <Redirect to="/" /> : <Places />)}
+        ></Route>
+        <Route
+          path="/place/:id"
+          render={() => (isAuth ? <Redirect to="/" /> : <PlacePage />)}
+        ></Route>
       </Switch>
     </>
   );

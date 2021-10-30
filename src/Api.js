@@ -1,9 +1,16 @@
 import axios from 'axios';
 import { HOST, PORT } from './utils/CONSTANTS';
 
-export const createUser = async (token) => {
+export const createUser = async (
+  token,
+  phone,
+  currentLocation,
+  newLocation
+) => {
   try {
-    const res = await axios.get(`${HOST}:${PORT}/createuser?token=${token}`);
+    const res = await axios.get(
+      `${HOST}:${PORT}/createuser?token=${token}&phone=${phone}&currentLocation=${currentLocation}&newLocation=${newLocation}`
+    );
     const response = res.data;
     return response;
   } catch (err) {

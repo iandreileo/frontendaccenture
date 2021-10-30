@@ -17,7 +17,7 @@ export const UserProvider = (props) => {
           .currentUser.getIdToken(/* forceRefresh */ true)
           .then(async function (idToken) {
             getUsersInfoAsync(idToken).then((fullUser) => {
-              if (fullUser.freeToday == null) {
+              if (fullUser.email == null) {
                 // console.log(true);
                 createUser(idToken).then((response) => {
                   if (response) {

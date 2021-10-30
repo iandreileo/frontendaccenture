@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import Header from '../partials/Header';
 
 import toast, { Toaster } from 'react-hot-toast';
-import { app } from '../firebaseConfig';
+import { app, signInWithGoogle } from '../firebaseConfig';
 import { createUser } from '../Api';
 import { UserContext } from '../providers/UserProvider';
 
@@ -17,7 +17,7 @@ function SignUp() {
   const [previousLocation, setPreviousLocation] = useState('select');
   // Global UserContext in the app
   const [user, setUser] = useContext(UserContext);
-
+  // console.log(phone);
   const handleRegister = (event) => {
     event.preventDefault();
     if (currentLocation === 'select' || previousLocation === 'select') {
@@ -34,8 +34,13 @@ function SignUp() {
             .currentUser.getIdToken(true)
             .then(async function (idToken) {
               // console.log('token' + idToken);
-
-              createUser(idToken).then((response) => {
+              console.log(phone);
+              createUser(
+                idToken,
+                phone,
+                previousLocation,
+                currentLocation
+              ).then((response) => {
                 if (response) {
                   setUser({ ...user, ...response });
                   // history.push('/home');
@@ -232,7 +237,7 @@ function SignUp() {
                     </div>
                   </div>
                   <div className="flex flex-wrap -mx-3">
-                    <div className="w-full px-3">
+                    <div className="w-full px-3" onClick={signInWithGoogle}>
                       <button className="btn px-0 text-white bg-red-600 hover:bg-red-700 w-full relative flex items-center">
                         <svg
                           className="w-4 h-4 fill-current text-white opacity-75 flex-shrink-0 mx-4"
