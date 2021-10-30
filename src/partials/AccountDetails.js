@@ -5,13 +5,12 @@ const AccountDetails = () => {
   const [user, setUser] = useContext(UserContext);
   return (
     <section class="text-gray-600 body-font">
-      <div class="container px-5 pt-24 pb-8 mx-auto">
+      <div class="container px-5 pt-24 mx-auto">
         <div class="flex flex-wrap w-full mb-8">
           <div class="w-full mb-6 lg:mb-0">
-            <h1 class="sm:text-4xl text-5xl font-medium title-font mb-2 text-gray-900">
-              Account details: You have {user.points} points
-            </h1>
-            <div class="h-1 w-20 bg-blue-600 rounded"></div>
+          <h1 class="mb-2 text-2xl font-black tracking-tighter text-black md:text-5xl title-font"> Hello, {user.name}! </h1>
+          <p>Here you can claim voucher from local partners.</p>
+          <p className="title-font font-black">You have: {user.points} points.</p>
           </div>
         </div>
       </div>
