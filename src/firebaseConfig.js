@@ -35,8 +35,7 @@ export async function loginUser(email, password) {
 
 export const auth = app.auth();
 
-const googleProvider = new firebase.auth.GoogleAuthProvider();
-googleProvider.setCustomParameters({ prompt: 'select_account' });
+const provider = new firebase.auth.GoogleAuthProvider();
+provider.setCustomParameters({ prompt: 'select_account' });
 
-export const signInWithGoogle = () =>
-  firebase.auth().signInWithPopup(googleProvider);
+export const signInWithGoogle = () => auth.signInWithRedirect(provider);

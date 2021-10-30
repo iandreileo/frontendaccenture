@@ -14,6 +14,7 @@ import Places from './pages/Places';
 import PlacePage from './pages/PlacePage';
 import { UserContext } from './providers/UserProvider';
 import { Redirect } from 'react-router-dom';
+import Profile from './pages/Profile';
 
 function App() {
   const [user, setUser] = useContext(UserContext);
@@ -28,6 +29,7 @@ function App() {
       easing: 'ease-out-cubic',
     });
     if (user) {
+      // console.log(user);
       setIsAuth(true);
     } else {
       setIsAuth(false);
@@ -46,6 +48,9 @@ function App() {
       <Switch>
         <Route exact path="/">
           <Home />
+        </Route>
+        <Route exact path="/profile">
+          <Profile />
         </Route>
         <Route
           path="/signin"
