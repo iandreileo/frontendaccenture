@@ -72,8 +72,8 @@ function App() {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route exact path="/profile">
-          <Dashboard />
+        <Route exact path="/profile" render={() => (!isAuth ? <Redirect to="/" /> : <Dashboard />)}>
+          
         </Route>
         <Route
           path="/signin"

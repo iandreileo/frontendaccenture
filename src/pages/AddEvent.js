@@ -28,7 +28,8 @@ function AddEvent() {
         date: date,
         category: category,
         addedBy: user.uid,
-        uid: user.uid
+        uid: user.uid,
+        name: user.name
       })
       .then(function (response) {
         history.push("/main");

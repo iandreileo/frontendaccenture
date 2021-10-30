@@ -78,7 +78,25 @@ const Promotions = () => {
       });
 
     } else {
-      toast.error('You don\'t have enough points!');
+      toast.error('You don\'t have enough points!', {
+        duration: 10000,
+        position: 'middle-center',
+        // Styling
+        style: {},
+        className: '',
+        // Custom Icon
+        icon: '👏',
+        // Change colors of success/error/loading icon
+        iconTheme: {
+          primary: '#000',
+          secondary: '#fff',
+        },
+        // Aria
+        ariaProps: {
+          role: 'status',
+          'aria-live': 'polite',
+        },
+      });
     }
  
   }

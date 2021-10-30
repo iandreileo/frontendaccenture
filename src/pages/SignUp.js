@@ -152,14 +152,15 @@ function SignUp() {
                     </div>
                   </div>
                   <div className="flex flex-wrap -mx-3 mb-4">
-                    <div className="w-1/2 pl-3">
+                    <div className="w-full px-3">
                       <label
                         className="block text-gray-800 text-sm font-medium mb-1"
                         htmlFor="current-location"
                       >
-                        Current Location <span className="text-red-600">*</span>
+                        New Location <span className="text-red-600">*</span>
                       </label>
                       <select
+                      className="form-input w-full text-gray-800"
                         id="current-location"
                         onChange={(e) => setCurrentLocation(e.target.value)}
                       >
@@ -170,7 +171,7 @@ function SignUp() {
                         <option value="madrid">Madrid</option>
                       </select>
                     </div>
-                    <div className="w-1/2 pr-3">
+                    <div className="w-full mt-4 px-3">
                       <label
                         className="block text-gray-800 text-sm font-medium mb-1"
                         htmlFor="new-location"
@@ -179,6 +180,7 @@ function SignUp() {
                         <span className="text-red-600">*</span>
                       </label>
                       <select
+                      className="form-input w-full text-gray-800"
                         id="previous-location"
                         onChange={(e) => setPreviousLocation(e.target.value)}
                       >

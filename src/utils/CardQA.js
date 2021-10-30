@@ -11,7 +11,7 @@ const CardQA = ({place}) => {
             </p>
             <div class="mt-2">
                 <Link to={`/topic/${place.id}`} class="text-blue-700  inline-flex items-center font-semibold tracking-wide">
-                    Read Answears
+                    Read answers
                     <span class="text-xl ml-2">&#8594;</span>
                 </Link>
             </div>

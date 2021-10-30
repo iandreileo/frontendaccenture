@@ -33,7 +33,8 @@ function AddLocalCustom() {
         features: features,
         website: website,
         addedBy: addedBy,
-        uid: user.uid
+        uid: user.uid,
+        name: user.name
       })
       .then(function (response) {
         history.push("/main");

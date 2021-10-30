@@ -27,7 +27,8 @@ function AddLocalLaw() {
         article: article,
         year: year,
         category: category,
-        addedBy: user.uid
+        addedBy: user.uid,
+        name: user.name
       })
       .then(function (response) {
         history.push("/main");
