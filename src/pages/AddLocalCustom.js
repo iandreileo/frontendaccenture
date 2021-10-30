@@ -10,7 +10,7 @@ import Footer from '../partials/Footer';
 import { useHistory } from 'react-router';
 import { UserContext } from '../providers/UserProvider';
 
-function AddRestaurant() {
+function AddLocalCustom() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
   const [image, setImage] = useState('');
@@ -22,9 +22,9 @@ function AddRestaurant() {
   const [user] = useContext(UserContext);
   let history = useHistory();
 
-  const handleAddRestaurant = (event) => {
+  const handleAddLocalCustom = (event) => {
     event.preventDefault();
-    axios.post(`${HOST}:${PORT}/addRestaurant`, {
+    axios.post(`${HOST}:${PORT}/addlocalcustom`, {
         title: title,
         description: description,
         image: image,
@@ -57,12 +57,12 @@ function AddRestaurant() {
               {/* Page header */}
               <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
                 <h1 className="h1">
-                  Add a new restaurant
+                  Add a new local custom
                 </h1>
               </div>
 
               <div className="max-w-sm mx-auto">
-                <form onSubmit={handleAddRestaurant}>
+                <form onSubmit={handleAddLocalCustom}>
                   <div className="flex flex-wrap -mx-3 mb-4">
                     <div className="w-full px-3">
                       <label
@@ -219,7 +219,7 @@ function AddRestaurant() {
                   <div className="flex flex-wrap -mx-3 mt-6">
                     <div className="w-full px-3">
                       <button className="btn text-white bg-blue-600 hover:bg-blue-700 w-full">
-                        Add restaurant
+                        Add local custom
                       </button>
                     </div>
                   </div>
@@ -234,4 +234,4 @@ function AddRestaurant() {
   );
 }
 
-export default AddRestaurant;
+export default AddLocalCustom;

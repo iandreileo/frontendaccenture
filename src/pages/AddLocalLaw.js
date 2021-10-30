@@ -10,30 +10,24 @@ import Footer from '../partials/Footer';
 import { useHistory } from 'react-router';
 import { UserContext } from '../providers/UserProvider';
 
-function AddRestaurant() {
+function AddLocalLaw() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const [image, setImage] = useState('');
-  const [category, setCategory] = useState();
-  const [address, setAddress] = useState('');
-  const [features, setFeatures] = useState('');
-  const [website, setWebsite] = useState('');
-  const [addedBy, setAddedBy] = useState('');
+  const [article, setArticle] = useState('');
+  const [year, setYear] = useState();
+  const [category, setCategory] = useState('');
   const [user] = useContext(UserContext);
   let history = useHistory();
 
-  const handleAddRestaurant = (event) => {
+  const handleAddLocalLaw = (event) => {
     event.preventDefault();
-    axios.post(`${HOST}:${PORT}/addRestaurant`, {
+    axios.post(`${HOST}:${PORT}/addlocallaw`, {
         title: title,
         description: description,
-        image: image,
+        article: article,
+        year: year,
         category: category,
-        address: address,
-        features: features,
-        website: website,
-        addedBy: addedBy,
-        uid: user.uid
+        addedBy: user.uid
       })
       .then(function (response) {
         history.push("/main");
@@ -57,12 +51,12 @@ function AddRestaurant() {
               {/* Page header */}
               <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
                 <h1 className="h1">
-                  Add a new restaurant
+                  Add a new local law
                 </h1>
               </div>
 
               <div className="max-w-sm mx-auto">
-                <form onSubmit={handleAddRestaurant}>
+                <form onSubmit={handleAddLocalLaw}>
                   <div className="flex flex-wrap -mx-3 mb-4">
                     <div className="w-full px-3">
                       <label
@@ -106,18 +100,37 @@ function AddRestaurant() {
                     <div className="w-full px-3">
                       <label
                         className="block text-gray-800 text-sm font-medium mb-1"
-                        htmlFor="image"
+                        htmlFor="article"
                       >
-                        Image url <span className="text-red-600">*</span>
+                        Article <span className="text-red-600">*</span>
                       </label>
                       <input
                         id="image"
                         type="text"
                         className="form-input w-full text-gray-800"
-                        placeholder="Enter image url"
+                        placeholder="Enter article"
                         required
-                        value={image}
-                        onChange={(e) => setImage(e.target.value)}
+                        value={article}
+                        onChange={(e) => setArticle(e.target.value)}
+                      />
+                    </div>
+                  </div>
+                  <div className="flex flex-wrap -mx-3 mb-4">
+                    <div className="w-full px-3">
+                      <label
+                        className="block text-gray-800 text-sm font-medium mb-1"
+                        htmlFor="year"
+                      >
+                        Year <span className="text-red-600">*</span>
+                      </label>
+                      <input
+                        id="year"
+                        type="text"
+                        className="form-input w-full text-gray-800"
+                        placeholder="Enter year"
+                        required
+                        value={year}
+                        onChange={(e) => setYear(e.target.value)}
                       />
                     </div>
                   </div>
@@ -140,86 +153,10 @@ function AddRestaurant() {
                       />
                     </div>
                   </div>
-                  <div className="flex flex-wrap -mx-3 mb-4">
-                    <div className="w-full px-3">
-                      <label
-                        className="block text-gray-800 text-sm font-medium mb-1"
-                        htmlFor="address"
-                      >
-                        Addres <span className="text-red-600">*</span>
-                      </label>
-                      <input
-                        id="address"
-                        type="text"
-                        className="form-input w-full text-gray-800"
-                        placeholder="Enter address"
-                        required
-                        value={address}
-                        onChange={(e) => setAddress(e.target.value)}
-                      />
-                    </div>
-                  </div>
-                  <div className="flex flex-wrap -mx-3 mb-4">
-                    <div className="w-full px-3">
-                      <label
-                        className="block text-gray-800 text-sm font-medium mb-1"
-                        htmlFor="features"
-                      >
-                        Features <span className="text-red-600">*</span>
-                      </label>
-                      <input
-                        id="features"
-                        type="text"
-                        className="form-input w-full text-gray-800"
-                        placeholder="Enter features"
-                        required
-                        value={features}
-                        onChange={(e) => setFeatures(e.target.value)}
-                      />
-                    </div>
-                  </div>
-                  <div className="flex flex-wrap -mx-3 mb-4">
-                    <div className="w-full px-3">
-                      <label
-                        className="block text-gray-800 text-sm font-medium mb-1"
-                        htmlFor="website"
-                      >
-                        Website <span className="text-red-600">*</span>
-                      </label>
-                      <input
-                        id="website"
-                        type="text"
-                        className="form-input w-full text-gray-800"
-                        placeholder="Enter website"
-                        required
-                        value={website}
-                        onChange={(e) => setWebsite(e.target.value)}
-                      />
-                    </div>
-                  </div>
-                  <div className="flex flex-wrap -mx-3 mb-4">
-                    <div className="w-full px-3">
-                      <label
-                        className="block text-gray-800 text-sm font-medium mb-1"
-                        htmlFor="addedBy"
-                      >
-                        Author <span className="text-red-600">*</span>
-                      </label>
-                      <input
-                        id="addedBy"
-                        type="text"
-                        className="form-input w-full text-gray-800"
-                        placeholder="Enter author"
-                        required
-                        value={addedBy}
-                        onChange={(e) => setAddedBy(e.target.value)}
-                      />
-                    </div>
-                  </div>
                   <div className="flex flex-wrap -mx-3 mt-6">
                     <div className="w-full px-3">
                       <button className="btn text-white bg-blue-600 hover:bg-blue-700 w-full">
-                        Add restaurant
+                        Add local law
                       </button>
                     </div>
                   </div>
@@ -234,4 +171,4 @@ function AddRestaurant() {
   );
 }
 
-export default AddRestaurant;
+export default AddLocalLaw;

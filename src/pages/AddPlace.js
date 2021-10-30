@@ -146,7 +146,7 @@ function AddPlace() {
                         className="block text-gray-800 text-sm font-medium mb-1"
                         htmlFor="address"
                       >
-                        Addres <span className="text-red-600">*</span>
+                        Address <span className="text-red-600">*</span>
                       </label>
                       <input
                         id="address"
