@@ -1,27 +1,28 @@
-import React, { useContext, useState } from 'react';
-import axios from 'axios';
-import { HOST } from '../utils/CONSTANTS';
-import { PORT } from '../utils/CONSTANTS';
+import React, { useContext, useState } from "react";
+import axios from "axios";
+import { HOST } from "../utils/CONSTANTS";
+import { PORT } from "../utils/CONSTANTS";
 
-import Header from '../partials/Header';
+import Header from "../partials/Header";
 
-import { Toaster } from 'react-hot-toast';
-import Footer from '../partials/Footer';
-import { useHistory } from 'react-router';
-import { UserContext } from '../providers/UserProvider';
+import { Toaster } from "react-hot-toast";
+import Footer from "../partials/Footer";
+import { useHistory } from "react-router";
+import { UserContext } from "../providers/UserProvider";
 
 function AddEvent() {
-  const [title, setTitle] = useState('');
-  const [image, setImage] = useState('');
-  const [description, setDescription] = useState('');
-  const [date, setDate] = useState('');
+  const [title, setTitle] = useState("");
+  const [image, setImage] = useState("");
+  const [description, setDescription] = useState("");
+  const [date, setDate] = useState("");
   const [category, setCategory] = useState();
   const [user] = useContext(UserContext);
   let history = useHistory();
 
   const handleAddEvent = (event) => {
     event.preventDefault();
-    axios.post(`${HOST}:${PORT}/addevent`, {
+    axios
+      .post(`${HOST}:${PORT}/addevent`, {
         title: title,
         image: image,
         description: description,
@@ -29,7 +30,7 @@ function AddEvent() {
         category: category,
         addedBy: user.uid,
         uid: user.uid,
-        name: user.name
+        name: user.name,
       })
       .then(function (response) {
         history.push("/main");
@@ -41,7 +42,6 @@ function AddEvent() {
 
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">
-
       <Header />
 
       {/*  Page content */}
@@ -52,9 +52,7 @@ function AddEvent() {
             <div className="pt-32 pb-12 md:pt-40 md:pb-20">
               {/* Page header */}
               <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
-                <h1 className="h1">
-                  Add a new event
-                </h1>
+                <h1 className="h1">Add a new event</h1>
               </div>
 
               <div className="max-w-sm mx-auto">
@@ -79,7 +77,6 @@ function AddEvent() {
                     </div>
                   </div>
                   <div className="flex flex-wrap -mx-3 mb-4">
-       
                     <div className="w-full px-3">
                       <label
                         className="block text-gray-800 text-sm font-medium mb-1"

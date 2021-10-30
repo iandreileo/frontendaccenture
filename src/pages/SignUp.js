@@ -1,27 +1,27 @@
-import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from "react";
+import { Link } from "react-router-dom";
 
-import Header from '../partials/Header';
+import Header from "../partials/Header";
 
-import toast, { Toaster } from 'react-hot-toast';
-import { app, signInWithGoogle } from '../firebaseConfig';
-import { createUser } from '../Api';
-import { UserContext } from '../providers/UserProvider';
+import toast, { Toaster } from "react-hot-toast";
+import { app, signInWithGoogle } from "../firebaseConfig";
+import { createUser } from "../Api";
+import { UserContext } from "../providers/UserProvider";
 
 function SignUp() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [name, setName] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
   const [phone, setPhone] = useState();
-  const [currentLocation, setCurrentLocation] = useState('select');
-  const [previousLocation, setPreviousLocation] = useState('select');
+  const [currentLocation, setCurrentLocation] = useState("select");
+  const [previousLocation, setPreviousLocation] = useState("select");
   // Global UserContext in the app
   const [user, setUser] = useContext(UserContext);
   // console.log(phone);
   const handleRegister = (event) => {
     event.preventDefault();
-    if (currentLocation === 'select' || previousLocation === 'select') {
-      toast.error('Select current and previous locations');
+    if (currentLocation === "select" || previousLocation === "select") {
+      toast.error("Select current and previous locations");
     } else {
       app
         .auth()
@@ -160,7 +160,7 @@ function SignUp() {
                         New Location <span className="text-red-600">*</span>
                       </label>
                       <select
-                      className="form-input w-full text-gray-800"
+                        className="form-input w-full text-gray-800"
                         id="current-location"
                         onChange={(e) => setCurrentLocation(e.target.value)}
                       >
@@ -176,11 +176,11 @@ function SignUp() {
                         className="block text-gray-800 text-sm font-medium mb-1"
                         htmlFor="new-location"
                       >
-                        Previous Location{' '}
+                        Previous Location{" "}
                         <span className="text-red-600">*</span>
                       </label>
                       <select
-                      className="form-input w-full text-gray-800"
+                        className="form-input w-full text-gray-800"
                         id="previous-location"
                         onChange={(e) => setPreviousLocation(e.target.value)}
                       >
@@ -200,11 +200,11 @@ function SignUp() {
                     </div>
                   </div>
                   <div className="text-sm text-gray-500 text-center mt-3">
-                    By creating an account, you agree to the{' '}
+                    By creating an account, you agree to the{" "}
                     <a className="underline" href="#0">
                       terms & conditions
                     </a>
-                    , and our{' '}
+                    , and our{" "}
                     <a className="underline" href="#0">
                       privacy policy
                     </a>
@@ -257,7 +257,7 @@ function SignUp() {
                   </div>
                 </form>
                 <div className="text-gray-600 text-center mt-6">
-                  Already using Simple?{' '}
+                  Already using Simple?{" "}
                   <Link
                     to="/signin"
                     className="text-blue-600 hover:underline transition duration-150 ease-in-out"

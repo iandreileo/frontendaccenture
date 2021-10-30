@@ -1,34 +1,35 @@
-import React, { useContext, useState } from 'react';
-import axios from 'axios';
-import { HOST } from '../utils/CONSTANTS';
-import { PORT } from '../utils/CONSTANTS';
+import React, { useContext, useState } from "react";
+import axios from "axios";
+import { HOST } from "../utils/CONSTANTS";
+import { PORT } from "../utils/CONSTANTS";
 
-import Header from '../partials/Header';
+import Header from "../partials/Header";
 
-import { Toaster } from 'react-hot-toast';
-import Footer from '../partials/Footer';
-import { useHistory } from 'react-router';
-import { UserContext } from '../providers/UserProvider';
+import { Toaster } from "react-hot-toast";
+import Footer from "../partials/Footer";
+import { useHistory } from "react-router";
+import { UserContext } from "../providers/UserProvider";
 
 function AddLocalLaw() {
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [article, setArticle] = useState('');
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [article, setArticle] = useState("");
   const [year, setYear] = useState();
-  const [category, setCategory] = useState('');
+  const [category, setCategory] = useState("");
   const [user] = useContext(UserContext);
   let history = useHistory();
 
   const handleAddLocalLaw = (event) => {
     event.preventDefault();
-    axios.post(`${HOST}:${PORT}/addlocallaw`, {
+    axios
+      .post(`${HOST}:${PORT}/addlocallaw`, {
         title: title,
         description: description,
         article: article,
         year: year,
         category: category,
         addedBy: user.uid,
-        name: user.name
+        name: user.name,
       })
       .then(function (response) {
         history.push("/main");
@@ -40,7 +41,6 @@ function AddLocalLaw() {
 
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">
-
       <Header />
 
       {/*  Page content */}
@@ -51,9 +51,7 @@ function AddLocalLaw() {
             <div className="pt-32 pb-12 md:pt-40 md:pb-20">
               {/* Page header */}
               <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
-                <h1 className="h1">
-                  Add a new local law
-                </h1>
+                <h1 className="h1">Add a new local law</h1>
               </div>
 
               <div className="max-w-sm mx-auto">
@@ -97,7 +95,6 @@ function AddLocalLaw() {
                     </div>
                   </div>
                   <div className="flex flex-wrap -mx-3 mb-4">
-       
                     <div className="w-full px-3">
                       <label
                         className="block text-gray-800 text-sm font-medium mb-1"

@@ -1,5 +1,5 @@
-import axios from 'axios';
-import { HOST, PORT } from './utils/CONSTANTS';
+import axios from "axios";
+import { HOST, PORT } from "./utils/CONSTANTS";
 
 export const createUser = async (
   token,
@@ -9,7 +9,7 @@ export const createUser = async (
   newLocation
 ) => {
   try {
-    console.log(name)
+    console.log(name);
     const res = await axios.get(
       `${HOST}:${PORT}/createuser?token=${token}&phone=${phone}&currentLocation=${currentLocation}&newLocation=${newLocation}&name=${name}`
     );
@@ -31,10 +31,11 @@ export const getUsersInfoAsync = async (idToken) => {
   }
 };
 
-
 export const createAnswear = async (answear, name, id, uid) => {
   try {
-    const res = await axios.get(`${HOST}:${PORT}/addAnswear?answear=${answear}&name=${name}&id=${id}&uid=${uid}`);
+    const res = await axios.get(
+      `${HOST}:${PORT}/addAnswear?answear=${answear}&name=${name}&id=${id}&uid=${uid}`
+    );
     const userFromServer = res.data;
     // console.log(userFromServer)
     return userFromServer;
