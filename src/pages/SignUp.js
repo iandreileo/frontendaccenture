@@ -34,9 +34,10 @@ function SignUp() {
             .currentUser.getIdToken(true)
             .then(async function (idToken) {
               // console.log('token' + idToken);
-              console.log(phone);
+              console.log(name);
               createUser(
                 idToken,
+                name,
                 phone,
                 previousLocation,
                 currentLocation
