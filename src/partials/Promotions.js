@@ -22,6 +22,11 @@ const Promotions = () => {
       points: 200,
       description: 'Voucher de 30% la Dominos',
     },
+    {
+      id: 4,
+      points: 200,
+      description: 'Voucher de 30% la Dominos',
+    },
   ];
   const [selectedPromo, setSelectedPromo] = useState(0);
   return (

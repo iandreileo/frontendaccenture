@@ -14,14 +14,21 @@ import Places from './pages/Places';
 import PlacePage from './pages/PlacePage';
 import { UserContext } from './providers/UserProvider';
 import { Redirect } from 'react-router-dom';
-// import Profile from './pages/Profile';
-// import MainPage from './pages/MainPage';
+import MainPage from './pages/MainPage';
+import Restaurants from './pages/Restaurants';
+import LocalCustoms from './pages/LocalCustoms';
+import LocalLaws from './pages/LocalLaws';
+import Events from './pages/Events';
+import QA from './pages/QA';
+import Loading from './partials/Loading';
+import { LoadingContext } from './providers/LoadingProvider';
 import Dashboard from './pages/Dashboard';
 
 function App() {
   const [user, setUser] = useContext(UserContext);
   const [isAuth, setIsAuth] = useState(true);
   const location = useLocation();
+  const [loading] = useContext(LoadingContext);
 
   useEffect(() => {
     AOS.init({
@@ -30,14 +37,14 @@ function App() {
       duration: 700,
       easing: 'ease-out-cubic',
     });
-    // if (user) {
-    //   console.log(user);
-    //   setIsAuth(true);
-    // } else {
-    //   console.log(user);
+    if (user) {
+      console.log(user);
+      setIsAuth(true);
+    } else {
+      console.log(user);
 
-    //   setIsAuth(false);
-    // }
+      setIsAuth(false);
+    }
   });
 
   useEffect(() => {
@@ -48,12 +55,13 @@ function App() {
   }, [location.pathname]); // triggered on route change
 
   return (
+    loading ? <Loading /> :
     <>
       <Switch>
         <Route exact path="/">
           <Home />
         </Route>
-        <Route exact path="/dashboard">
+        <Route exact path="/profile">
           <Dashboard />
         </Route>
         <Route
@@ -75,10 +83,30 @@ function App() {
           path="/place/:id"
           render={() => (!isAuth ? <Redirect to="/" /> : <PlacePage />)}
         ></Route>
-        {/* <Route
+        <Route
           path="/main"
           render={() => (!isAuth ? <Redirect to="/" /> : <MainPage />)}
-        ></Route> */}
+        ></Route>
+          <Route
+          path="/restaurants"
+          render={() => (!isAuth ? <Redirect to="/" /> : <Restaurants />)}
+        ></Route>
+                  <Route
+          path="/localcustoms"
+          render={() => (!isAuth ? <Redirect to="/" /> : <LocalCustoms />)}
+        ></Route>
+                          <Route
+          path="/locallaws"
+          render={() => (!isAuth ? <Redirect to="/" /> : <LocalLaws />)}
+        ></Route>
+                                 <Route
+          path="/events"
+          render={() => (!isAuth ? <Redirect to="/" /> : <Events />)}
+        ></Route>
+                                         <Route
+          path="/qa"
+          render={() => (!isAuth ? <Redirect to="/" /> : <QA />)}
+        ></Route>
       </Switch>
     </>
   );

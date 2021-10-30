@@ -27,7 +27,7 @@ function Header() {
         !top && 'bg-white blur shadow-lg'
       }`}
     >
-      <div className="max-w-6xl mx-auto px-5 sm:px-6">
+      <div className="container mx-auto px-5 sm:px-6">
         <div className="flex items-center justify-between h-16 md:h-20">
           {/* Site branding */}
           <div className="flex-shrink-0 mr-4">
@@ -70,9 +70,10 @@ function Header() {
                 <>
                   <li>Hello, {user.email}</li>
                   <li>
-                    <div
+                    <Link
+                      to="/main"
                       className="btn-sm text-gray-200 bg-gray-900 hover:bg-gray-800 ml-3"
-                      onClick={handleSignOut}
+                      
                     >
                       <span>Use platform</span>
                       <svg
@@ -85,7 +86,7 @@ function Header() {
                           fillRule="nonzero"
                         />
                       </svg>
-                    </div>
+                    </Link>
                   </li>
                 </>
               ) : (
