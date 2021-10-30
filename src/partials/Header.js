@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
-import { app } from "../firebaseConfig";
-import { UserContext } from "../providers/UserProvider";
+import React, { useState, useEffect, useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { app } from '../firebaseConfig';
+import { UserContext } from '../providers/UserProvider';
 
 function Header() {
   const [top, setTop] = useState(true);
@@ -13,8 +13,8 @@ function Header() {
     const scrollHandler = () => {
       window.pageYOffset > 10 ? setTop(false) : setTop(true);
     };
-    window.addEventListener("scroll", scrollHandler);
-    return () => window.removeEventListener("scroll", scrollHandler);
+    window.addEventListener('scroll', scrollHandler);
+    return () => window.removeEventListener('scroll', scrollHandler);
   }, [top]);
 
   const handleSignOut = () => {
@@ -25,7 +25,7 @@ function Header() {
   return (
     <header
       className={`fixed w-full z-30 md:bg-opacity-90 transition duration-300 ease-in-out ${
-        !top && "bg-white blur shadow-lg"
+        !top && 'bg-white blur shadow-lg'
       }`}
     >
       <div className="container mx-auto px-5 sm:px-6">
@@ -74,6 +74,7 @@ function Header() {
                     <div
                       onClick={handleSignOut}
                       className="btn-sm text-gray-200 bg-gray-900 hover:bg-gray-800 ml-3"
+                      
                     >
                       <span>Log Out</span>
                       <svg
@@ -92,6 +93,7 @@ function Header() {
                     <Link
                       to="/main"
                       className="btn-sm text-gray-200 bg-gray-900 hover:bg-gray-800 ml-3"
+                      
                     >
                       <span>Use app</span>
                       <svg

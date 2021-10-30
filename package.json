@@ -29,7 +29,6 @@
     "start": "craco start",
     "build": "craco build",
     "test": "craco test",
-    "format": "prettier --write \"src/**/*.{js,jsx}\"",
     "eject": "craco eject"
   },
   "eslintConfig": {
@@ -46,8 +45,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "devDependencies": {
-    "prettier": "2.4.1"
   }
 }

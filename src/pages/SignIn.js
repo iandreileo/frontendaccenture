@@ -1,14 +1,14 @@
-import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
-import { loginUser, signInWithGoogle } from "../firebaseConfig";
+import React, { useContext, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { loginUser, signInWithGoogle } from '../firebaseConfig';
 
-import Header from "../partials/Header";
-import { LoadingContext } from "../providers/LoadingProvider";
-import { UserContext } from "../providers/UserProvider";
+import Header from '../partials/Header';
+import { LoadingContext } from '../providers/LoadingProvider';
+import { UserContext } from '../providers/UserProvider';
 
 function SignIn() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   const [user] = useContext(UserContext);
   const [loading, setLoading] = useContext(LoadingContext);
@@ -17,8 +17,8 @@ function SignIn() {
     event.preventDefault();
     let result;
 
-    if (email == "" || password == "") {
-      console.log("empty");
+    if (email == '' || password == '') {
+      console.log('empty');
     } else {
       result = await loginUser(email, password);
     }
@@ -162,7 +162,7 @@ function SignIn() {
                   </div>
                 </form>
                 <div className="text-gray-600 text-center mt-6">
-                  Don’t you have an account?{" "}
+                  Don’t you have an account?{' '}
                   <Link
                     to="/signup"
                     className="text-blue-600 hover:underline transition duration-150 ease-in-out"

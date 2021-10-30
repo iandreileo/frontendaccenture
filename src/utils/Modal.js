@@ -1,8 +1,15 @@
-import React, { useEffect, useRef } from "react";
-import PropTypes from "prop-types";
-import Transition from "../utils/Transition.js";
+import React, { useEffect, useRef } from 'react';
+import PropTypes from 'prop-types';
+import Transition from '../utils/Transition.js';
 
-function Modal({ children, id, ariaLabel, show, handleClose }) {
+function Modal({
+  children,
+  id,
+  ariaLabel,
+  show,
+  handleClose
+}) {
+
   const modalContent = useRef(null);
 
   // close the modal on click outside
@@ -11,9 +18,9 @@ function Modal({ children, id, ariaLabel, show, handleClose }) {
       if (!show || modalContent.current.contains(target)) return;
       handleClose();
     };
-    document.addEventListener("click", clickHandler);
-    return () => document.removeEventListener("click", clickHandler);
-  });
+    document.addEventListener('click', clickHandler);
+    return () => document.removeEventListener('click', clickHandler);
+  });  
 
   // close the modal if the esc key is pressed
   useEffect(() => {
@@ -21,10 +28,10 @@ function Modal({ children, id, ariaLabel, show, handleClose }) {
       if (keyCode !== 27) return;
       handleClose();
     };
-    document.addEventListener("keydown", keyHandler);
+    document.addEventListener('keydown', keyHandler);
 
-    return () => document.removeEventListener("keydown", keyHandler);
-  });
+    return () => document.removeEventListener('keydown', keyHandler);
+  });  
 
   return (
     <>
@@ -56,13 +63,10 @@ function Modal({ children, id, ariaLabel, show, handleClose }) {
         leaveStart="opacity-100 scale-100"
         leaveEnd="opacity-0 scale-95"
       >
-        <div
-          className="bg-white overflow-auto max-w-6xl w-full max-h-full"
-          ref={modalContent}
-        >
+        <div className="bg-white overflow-auto max-w-6xl w-full max-h-full" ref={modalContent}>          
           {children}
         </div>
-      </Transition>
+      </Transition>    
     </>
   );
 }
@@ -72,10 +76,10 @@ export default Modal;
 Modal.propTypes = {
   children: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.element),
-    PropTypes.element.isRequired,
+    PropTypes.element.isRequired
   ]),
   id: PropTypes.string,
   ariaLabel: PropTypes.string,
   show: PropTypes.bool.isRequired,
-  handleClose: PropTypes.func.isRequired,
+  handleClose: PropTypes.func.isRequired
 };

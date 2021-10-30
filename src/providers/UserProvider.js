@@ -1,7 +1,7 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
-import { createUser, getUsersInfoAsync } from "../Api";
-import { LoadingContext } from "./LoadingProvider";
-import { app } from "../firebaseConfig";
+import React, { createContext, useContext, useEffect, useState } from 'react';
+import { createUser, getUsersInfoAsync } from '../Api';
+import { LoadingContext } from './LoadingProvider';
+import { app } from '../firebaseConfig';
 export const UserContext = createContext();
 
 export const UserProvider = (props) => {
