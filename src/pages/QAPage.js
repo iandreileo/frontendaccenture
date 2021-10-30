@@ -35,8 +35,6 @@ const QAPage = () => {
       } else {
         toast.error('Please enter a comment!');
       }
-
-
   }
 
     useEffect(() => {
@@ -52,7 +50,7 @@ const QAPage = () => {
 
       {/*  Page content */}
       <div className="container mx-auto">
-                <div className="pt-32 md:pt-40 md:pb-20">
+                <div className=" md:pb-20">
                 <section class="blog text-gray-700 body-font">
         <div class="container px-5 pt-24 mx-auto">
             <div class="flex flex-wrap sm:-m-4 -mx-4 -mb-10 -mt-4">
@@ -68,7 +66,7 @@ const QAPage = () => {
           <h1 class="text-3xl font-bold">{place.title}</h1>
           <h2 class="mt-2 text-sm text-gray-500"><strong>Added by</strong> <i>{place.addedBy}</i></h2>
 
-          <p class="mt-6">{place.question}</p>
+          <p class="mt-6 text-justify">{place.question}</p>
         </article>
       </main>
             </div>

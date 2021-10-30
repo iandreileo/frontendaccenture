@@ -34,6 +34,7 @@ import AddLocalCustom from './pages/AddLocalCustom';
 import AddLocalLaw from './pages/AddLocalLaw.js';
 import AddEvent from './pages/AddEvent';
 import AddTopic from './pages/AddTopic';
+import Ghizi from './pages/Ghizi';
 
 function App() {
   const [user, setUser] = useContext(UserContext);
@@ -169,6 +170,12 @@ function App() {
         <Route
           path="/addTopic"
           render={() => (!isAuth ? <Redirect to="/" /> : <AddTopic />)}
+        >
+        </Route>
+
+        <Route
+          path="/localguides"
+          render={() => (!isAuth ? <Redirect to="/" /> : <Ghizi />)}
         >
         </Route>
       </Switch>

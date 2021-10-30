@@ -165,10 +165,10 @@ function SignUp() {
                         onChange={(e) => setCurrentLocation(e.target.value)}
                       >
                         <option value="select"> Select location</option>
-                        <option value="london">London</option>
-                        <option value="dubai">Dubai</option>
-                        <option value="new york">New York</option>
-                        <option value="madrid">Madrid</option>
+                        <option value="London">London</option>
+                        <option value="Dubai">Dubai</option>
+                        <option value="New york">New York</option>
+                        <option value="Madrid">Madrid</option>
                       </select>
                     </div>
                     <div className="w-full mt-4 px-3">
@@ -185,10 +185,10 @@ function SignUp() {
                         onChange={(e) => setPreviousLocation(e.target.value)}
                       >
                         <option value="select"> Select location</option>
-                        <option value="london">London</option>
-                        <option value="dubai">Dubai</option>
-                        <option value="new york">New York</option>
-                        <option value="madrid">Madrid</option>
+                        <option value="London">London</option>
+                        <option value="Dubai">Dubai</option>
+                        <option value="New york">New York</option>
+                        <option value="Madrid">Madrid</option>
                       </select>
                     </div>
                   </div>

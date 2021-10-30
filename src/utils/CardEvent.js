@@ -6,10 +6,10 @@ const CardEvent = ({place}) => {
     return (
         <Link to={`/event/${place.id}`}>
         <div class="flex items-center p-4 bg-white border-2 border-gray-200 rounded-lg shadow-sm dark:bg-gray-800">
-        <div class="rounded-md ">
-            <img alt="mountain" class="rounded-md object-fit" src={place.image} />
+        <div class="rounded-md flex-1">
+            <img alt="mountain" class="rounded-md" src={place.image} />
         </div>
-         <div id="body" class="flex flex-col ml-5">
+         <div id="body" class="flex flex-col ml-5 flex-1">
             <h4 id="name" class="text-xl font-semibold mb-2">{place.title}</h4>
             <p id="job" class="text-gray-800 mt-2">{place.description.slice(0,200) + '...'}</p>
             <div class="mt-5">
