@@ -27,6 +27,8 @@ import RestaurantPage from './pages/RestaurantPage';
 import LocalCustomPage from './pages/LocalCustomPage';
 import LocalLawPage from './pages/LocalLawPage';
 import EventPage from './pages/EventPage';
+import AddPlace from './pages/AddPlace';
+import AddRestaurant from './pages/AddRestaurant';
 
 function App() {
   const [user, setUser] = useContext(UserContext);
@@ -128,6 +130,16 @@ function App() {
           path="/event/:id"
           render={() => (!isAuth ? <Redirect to="/" /> : <EventPage />)}
         ></Route>
+        <Route
+          path="/addPlace"
+          render={() => (!isAuth ? <Redirect to="/" /> : <AddPlace />)}
+        >
+        </Route>
+        <Route
+          path="/addRestaurant"
+          render={() => (!isAuth ? <Redirect to="/" /> : <AddRestaurant />)}
+        >
+        </Route>
       </Switch>
     </>
   );
