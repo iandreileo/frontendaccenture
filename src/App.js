@@ -14,7 +14,9 @@ import Places from './pages/Places';
 import PlacePage from './pages/PlacePage';
 import { UserContext } from './providers/UserProvider';
 import { Redirect } from 'react-router-dom';
-import Profile from './pages/Profile';
+// import Profile from './pages/Profile';
+// import MainPage from './pages/MainPage';
+import Dashboard from './pages/Dashboard';
 
 function App() {
   const [user, setUser] = useContext(UserContext);
@@ -28,12 +30,14 @@ function App() {
       duration: 700,
       easing: 'ease-out-cubic',
     });
-    if (user) {
-      // console.log(user);
-      setIsAuth(true);
-    } else {
-      setIsAuth(false);
-    }
+    // if (user) {
+    //   console.log(user);
+    //   setIsAuth(true);
+    // } else {
+    //   console.log(user);
+
+    //   setIsAuth(false);
+    // }
   });
 
   useEffect(() => {
@@ -49,8 +53,8 @@ function App() {
         <Route exact path="/">
           <Home />
         </Route>
-        <Route exact path="/profile">
-          <Profile />
+        <Route exact path="/dashboard">
+          <Dashboard />
         </Route>
         <Route
           path="/signin"
@@ -65,12 +69,16 @@ function App() {
         </Route>
         <Route
           path="/places"
-          render={() => (isAuth ? <Redirect to="/" /> : <Places />)}
+          render={() => (!isAuth ? <Redirect to="/" /> : <Places />)}
         ></Route>
         <Route
           path="/place/:id"
-          render={() => (isAuth ? <Redirect to="/" /> : <PlacePage />)}
+          render={() => (!isAuth ? <Redirect to="/" /> : <PlacePage />)}
         ></Route>
+        {/* <Route
+          path="/main"
+          render={() => (!isAuth ? <Redirect to="/" /> : <MainPage />)}
+        ></Route> */}
       </Switch>
     </>
   );
