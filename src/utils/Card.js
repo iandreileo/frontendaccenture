@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const Card = ({place}) => {
 
     return (
-        <div class="p-4 md:w-1/3 md:mb-0 mb-6 flex flex-col justify-center items-center max-w-sm mx-auto">
+        <div class="p-4 md:w-1/4 md:mb-0 mb-6 flex flex-col justify-center items-center max-w-sm mx-auto">
         <div class="bg-gray-300 h-56 w-full rounded-lg shadow-md bg-cover bg-center" style={{backgroundImage: `url(${place.image})`}}></div>
 
         <div class="bg-white -mt-10 shadow-lg rounded-lg overflow-hidden p-5" style={{width: "20rem"}}>
@@ -17,7 +17,28 @@ const Card = ({place}) => {
           </div>
           <div class="title-post font-medium">{place.title}</div>
 
-          <div class="summary-post text-base text-justify"> {place.text}
+          <div class="summary-post text-base text-justify"> 
+            {place.description}
+            <div class="text-sm text-right"><strong>Added by</strong> <i>pula mea</i></div>
+            <div>
+                <ul class="flex">
+                    <li>
+                        <i class="fas fa-star fa-sm text-yellow-500 mr-1"></i>
+                    </li>
+                    <li>
+                        <i class="fas fa-star fa-sm text-yellow-500 mr-1"></i>
+                    </li>
+                    <li>
+                        <i class="fas fa-star fa-sm text-yellow-500 mr-1"></i>
+                    </li>
+                    <li>
+                        <i class="far fa-star fa-sm text-yellow-500 mr-1"></i>
+                    </li>
+                    <li>
+                        <i class="far fa-star fa-sm text-yellow-500 mr-1"></i>
+                    </li>
+                </ul>
+            </div>
             <button class="bg-blue-100 text-blue-500 mt-4 block rounded p-2 text-sm "><Link to={`/place/${place.id}`}><span class="">Read more</span></Link></button>
           </div>
          
