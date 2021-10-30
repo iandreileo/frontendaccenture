@@ -33,6 +33,7 @@ import AddPlace from './pages/AddPlace';
 import AddLocalCustom from './pages/AddLocalCustom';
 import AddLocalLaw from './pages/AddLocalLaw.js';
 import AddEvent from './pages/AddEvent';
+import AddTopic from './pages/AddTopic';
 
 function App() {
   const [user, setUser] = useContext(UserContext);
@@ -163,6 +164,11 @@ function App() {
         <Route
           path="/addEvent"
           render={() => (!isAuth ? <Redirect to="/" /> : <AddEvent />)}
+        >
+        </Route>
+        <Route
+          path="/addTopic"
+          render={() => (!isAuth ? <Redirect to="/" /> : <AddTopic />)}
         >
         </Route>
       </Switch>
