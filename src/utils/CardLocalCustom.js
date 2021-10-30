@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 
-const Card = ({place}) => {
+const CardLocalCustom = ({place}) => {
 
     return (
         <div class="p-4 md:w-1/4 md:mb-0 mb-6 flex flex-col justify-center items-center max-w-sm mx-auto">
@@ -18,9 +18,8 @@ const Card = ({place}) => {
           <div class="title-post font-medium">{place.title}</div>
 
           <div class="summary-post text-base text-justify"> 
-          {place.description ? place.description.slice(0,40) + '...' : ""}
+          {place.description.slice(0,40) + '...'}
             <div class="text-sm"><strong>Added by:</strong> <i>{place.addedBy || 'Admin'}</i></div>
-            <div class="text-sm"><strong>Address:</strong> <i>{place.address}</i></div>
 
             <div>
                 <ul class="flex">
@@ -41,7 +40,7 @@ const Card = ({place}) => {
                     </li>
                 </ul>
             </div>
-            <div className="mt-4"><Link to={`/place/${place.id}`} class="bg-blue-100 text-blue-500 mt-4 rounded p-2 text-sm "><span class="">Read more</span></Link></div>
+            <div className="mt-4"><Link to={`/localcustom/${place.id}`} class="bg-blue-100 text-blue-500 mt-4 rounded p-2 text-sm "><span class="">Read more</span></Link></div>
           </div>
          
         </div>
@@ -49,4 +48,4 @@ const Card = ({place}) => {
     )
 }
 
-export default Card;
+export default CardLocalCustom;

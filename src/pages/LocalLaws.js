@@ -4,6 +4,7 @@ import Footer from '../partials/Footer';
 import Header from '../partials/Header';
 import Card from '../utils/Card';
 import { UserContext } from '../providers/UserProvider';
+import CardLocalLaws from '../utils/CardLocalLaws';
 
 const LocalLaws = () => {
     const [localLaws, setLocalLaws] = useState([]);
@@ -38,7 +39,7 @@ const LocalLaws = () => {
                 {
                     localLaws.map(
                         (locallaw) => (
-                          <Card place={locallaw} />
+                          <CardLocalLaws place={locallaw} />
                         ))
                 }
             </div>

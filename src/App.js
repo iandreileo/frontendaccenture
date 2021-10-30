@@ -23,6 +23,10 @@ import QA from './pages/QA';
 import Loading from './partials/Loading';
 import { LoadingContext } from './providers/LoadingProvider';
 import Dashboard from './pages/Dashboard';
+import RestaurantPage from './pages/RestaurantPage';
+import LocalCustomPage from './pages/LocalCustomPage';
+import LocalLawPage from './pages/LocalLawPage';
+import EventPage from './pages/EventPage';
 
 function App() {
   const [user, setUser] = useContext(UserContext);
@@ -91,6 +95,10 @@ function App() {
           path="/restaurants"
           render={() => (!isAuth ? <Redirect to="/" /> : <Restaurants />)}
         ></Route>
+                <Route
+          path="/restaurant/:id"
+          render={() => (!isAuth ? <Redirect to="/" /> : <RestaurantPage />)}
+        ></Route>
                   <Route
           path="/localcustoms"
           render={() => (!isAuth ? <Redirect to="/" /> : <LocalCustoms />)}
@@ -106,6 +114,19 @@ function App() {
                                          <Route
           path="/qa"
           render={() => (!isAuth ? <Redirect to="/" /> : <QA />)}
+        ></Route>
+                  <Route
+          path="/localcustom/:id"
+          render={() => (!isAuth ? <Redirect to="/" /> : <LocalCustomPage />)}
+        ></Route>
+                          <Route
+          path="/locallaw/:id"
+          render={() => (!isAuth ? <Redirect to="/" /> : <LocalLawPage />)}
+        ></Route>
+
+<Route
+          path="/event/:id"
+          render={() => (!isAuth ? <Redirect to="/" /> : <EventPage />)}
         ></Route>
       </Switch>
     </>

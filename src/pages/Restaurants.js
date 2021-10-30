@@ -4,6 +4,7 @@ import Footer from '../partials/Footer';
 import Header from '../partials/Header';
 import Card from '../utils/Card';
 import { UserContext } from '../providers/UserProvider';
+import CardRestaurant from '../utils/CardRestaurant';
 
 
 const Restaurants = () => {
@@ -39,7 +40,7 @@ const Restaurants = () => {
                 {
                     restaurants.map(
                         (restaurant) => (
-                          <Card place={restaurant} />
+                          <CardRestaurant restaurant={restaurant} />
                         ))
                 }
             </div>

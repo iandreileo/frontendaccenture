@@ -23,12 +23,12 @@ const Promotions = () => {
       description: 'Voucher de 30% la Dominos',
     },
     {
-      id: 4,
+      id: 5,
       points: 200,
       description: 'Voucher de 30% la Dominos',
     },
   ];
-  const [selectedPromo, setSelectedPromo] = useState(0);
+  const [selectedPromo, setSelectedPromo] = useState(1);
   return (
     <div className="container px-5 mx-auto">
       <div className="flex">
@@ -44,7 +44,7 @@ const Promotions = () => {
                 Super oferta pentru tine!
               </h1>
               <p class="text-gray-700 tracking-wide">
-                {promotions[selectedPromo]}
+                {promotions[selectedPromo].description}
               </p>
               <button class="mt-6 py-2 px-4 bg-blue-600 text-white font-bold rounded-lg shadow-md hover:shadow-lg transition duration-300">
                 Claim now
@@ -68,7 +68,7 @@ const Promotions = () => {
 
               <button
                 class=" absolute top-2 left-2 py-2 px-4 bg-blue-600 text-white font-bold rounded-lg shadow-md hover:shadow-lg transition duration-300"
-                onClick={setSelectedPromo(1)}
+                onClick={() => setSelectedPromo(1)}
               >
                 See more
               </button>
@@ -86,7 +86,7 @@ const Promotions = () => {
 
               <button
                 class=" absolute top-2 left-2 py-2 px-4 bg-blue-600 text-white font-bold rounded-lg shadow-md hover:shadow-lg transition duration-300"
-                onClick={setSelectedPromo(2)}
+                onClick={() => setSelectedPromo(2)}
               >
                 See more
               </button>
@@ -103,7 +103,7 @@ const Promotions = () => {
               />
 
               <button
-                onClick={setSelectedPromo(3)}
+                onClick={() => setSelectedPromo(3)}
                 class=" absolute top-2 left-2 py-2 px-4 bg-blue-600 text-white font-bold rounded-lg shadow-md hover:shadow-lg transition duration-300"
               >
                 See more
@@ -121,7 +121,7 @@ const Promotions = () => {
               />
 
               <button
-                onClick={setSelectedPromo(4)}
+                onClick={() => setSelectedPromo(4)}
                 class=" absolute top-2 left-2 py-2 px-4 bg-blue-600 text-white font-bold rounded-lg shadow-md hover:shadow-lg transition duration-300"
               >
                 See more

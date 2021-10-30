@@ -4,6 +4,7 @@ import Footer from '../partials/Footer';
 import Header from '../partials/Header';
 import Card from '../utils/Card';
 import { UserContext } from '../providers/UserProvider';
+import CardLocalCustom from '../utils/CardLocalCustom';
 
 const LocalCustoms = () => {
     const [localCustoms, setLocalCustoms] = useState([]);
@@ -38,7 +39,7 @@ const LocalCustoms = () => {
                 {
                     localCustoms.map(
                         (localcustom) => (
-                          <Card place={localcustom} />
+                          <CardLocalCustom place={localcustom} />
                         ))
                 }
             </div>
