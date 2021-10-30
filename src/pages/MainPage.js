@@ -30,7 +30,7 @@ const MainPage = () => {
             <div class="flex flex-col justify-center lg:flex-row">
                 <Link to="/places" class="flex items-center px-6 py-2 mt-auto font-semibold text-white transition duration-500 ease-in-out transform bg-blue-600 rounded-lg hover:bg-blue-700 focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2"> Show me </Link>
                 <p class="mt-2 text-sm text-left text-blueGray-600 md:ml-6 md:mt-0"> If you want to win bonus points, add a place. <br class="hidden lg:block"/>
-                <a href={`${HOST}:3001/addPlace`} class="inline-flex items-center font-semibold text-blue-600 md:mb-2 lg:mb-0 hover:text-black " title="read more"> Add a new place » </a>
+                <Link to="/addPlace" class="inline-flex items-center font-semibold text-blue-600 md:mb-2 lg:mb-0 hover:text-black " title="read more"> Add a new place » </Link>
                 </p>
             </div>
         </div>
@@ -52,7 +52,7 @@ const MainPage = () => {
             <div class="flex flex-col justify-center lg:flex-row">
                 <Link to="/restaurants" class="flex items-center px-6 py-2 mt-auto font-semibold text-white transition duration-500 ease-in-out transform bg-blue-600 rounded-lg hover:bg-blue-700 focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2"> Show me </Link>
                 <p class="mt-2 text-sm text-left text-blueGray-600 md:ml-6 md:mt-0">  If you want to win bonus points, add a restaurant. <br class="hidden lg:block"/>
-                <a href={`${HOST}:3001/addRestaurant`} class="inline-flex items-center font-semibold text-blue-600 md:mb-2 lg:mb-0 hover:text-black " title="read more"> Add a new restaurant » </a>
+                <Link to="/addRestaurant" class="inline-flex items-center font-semibold text-blue-600 md:mb-2 lg:mb-0 hover:text-black " title="read more"> Add a new restaurant » </Link>
                 </p>
             </div>
         </div>
@@ -68,7 +68,7 @@ const MainPage = () => {
             <div class="flex flex-col justify-center lg:flex-row">
                 <Link to="/localcustoms" class="flex items-center px-6 py-2 mt-auto font-semibold text-white transition duration-500 ease-in-out transform bg-blue-600 rounded-lg hover:bg-blue-700 focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2"> Show me </Link>
                 <p class="mt-2 text-sm text-left text-blueGray-600 md:ml-6 md:mt-0"> If you want to win bonus points, add a local custom. <br class="hidden lg:block"/>
-                <a href={`${HOST}:3001/addLocalCustom`} class="inline-flex items-center font-semibold text-blue-600 md:mb-2 lg:mb-0 hover:text-black " title="read more"> Add a new local custom » </a>
+                <Link to="/addLocalCustom" class="inline-flex items-center font-semibold text-blue-600 md:mb-2 lg:mb-0 hover:text-black " title="read more"> Add a new local custom » </Link>
                 </p>
             </div>
         </div>
@@ -90,7 +90,7 @@ const MainPage = () => {
             <div class="flex flex-col justify-center lg:flex-row">
             <Link to="/locallaws" class="flex items-center px-6 py-2 mt-auto font-semibold text-white transition duration-500 ease-in-out transform bg-blue-600 rounded-lg hover:bg-blue-700 focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2"> Show me </Link>
                 <p class="mt-2 text-sm text-left text-blueGray-600 md:ml-6 md:mt-0"> If you want to win bonus points, add a local law. <br class="hidden lg:block"/>
-                <a href={`${HOST}:3001/addLocalLaw`} class="inline-flex items-center font-semibold text-blue-600 md:mb-2 lg:mb-0 hover:text-black " title="read more"> Add a new local custom » </a>
+                <Link to="/addLocalLaw" class="inline-flex items-center font-semibold text-blue-600 md:mb-2 lg:mb-0 hover:text-black " title="read more"> Add a new local custom » </Link>
                 </p>
             </div>
         </div>
@@ -106,7 +106,7 @@ const MainPage = () => {
             <div class="flex flex-col justify-center lg:flex-row">
                 <Link to="/events" class="flex items-center px-6 py-2 mt-auto font-semibold text-white transition duration-500 ease-in-out transform bg-blue-600 rounded-lg hover:bg-blue-700 focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2"> Show me </Link>
                 <p class="mt-2 text-sm text-left text-blueGray-600 md:ml-6 md:mt-0"> If you want to win bonus points, add an event. <br class="hidden lg:block"/>
-                <a href={`${HOST}:3001/addEvent`} class="inline-flex items-center font-semibold text-blue-600 md:mb-2 lg:mb-0 hover:text-black " title="read more"> Add a new event » </a>
+                <Link to="/addEvent" class="inline-flex items-center font-semibold text-blue-600 md:mb-2 lg:mb-0 hover:text-black " title="read more"> Add a new event » </Link>
                 </p>
             </div>
         </div>
@@ -128,7 +128,7 @@ const MainPage = () => {
             <div class="flex flex-col justify-center lg:flex-row">
                 <Link to="/qa" class="flex items-center px-6 py-2 mt-auto font-semibold text-white transition duration-500 ease-in-out transform bg-blue-600 rounded-lg hover:bg-blue-700 focus:shadow-outline focus:outline-none focus:ring-2 ring-offset-current ring-offset-2"> Show me </Link>
                 <p class="mt-2 text-sm text-left text-blueGray-600 md:ml-6 md:mt-0"> If you have a question, create a topic. <br class="hidden lg:block"/>
-                <a href={`${HOST}:3001/addTopic`} class="inline-flex items-center font-semibold text-blue-600 md:mb-2 lg:mb-0 hover:text-black " title="read more"> Create a new topic » </a>
+                <Link to="/addTopic" class="inline-flex items-center font-semibold text-blue-600 md:mb-2 lg:mb-0 hover:text-black " title="read more"> Create a new topic » </Link>
                 </p>
             </div>
         </div>
