@@ -19,7 +19,7 @@ const Card = ({place}) => {
 
           <div class="summary-post text-base text-justify"> 
             {place.description}
-            <div class="text-sm text-right"><strong>Added by</strong> <i>pula mea</i></div>
+            <div class="text-sm text-right"><strong>Added by</strong> <i>{place.addedBy}</i></div>
             <div>
                 <ul class="flex">
                     <li>
